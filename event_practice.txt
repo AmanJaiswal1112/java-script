@@ -1,0 +1,40 @@
+console.log("HAnding Events.............................................");
+
+let btn1 = document.querySelector("#btn1");
+
+btn1.onClick = () => {
+    console.log("button cliecked");
+};  
+
+
+
+btn1.addEventListener("click", (evt) => {
+console.log("button 1 is clicked");
+console.log(evt);
+});
+
+
+let mode ="light";
+btn3.addEventListener("click", (evt) => {
+    if(mode === "light"){
+        mode="dark";
+        document.querySelector("body").classList.add("dark");
+        document.querySelector("body").classList.remove("white");        
+    }else{
+        mode="light";
+        document.querySelector("body").style.background="white";
+    }
+    console.log("button cliecked, pls chenge color",mode);
+    console.log(evt);
+    });
+
+
+
+
+let btn2 = document.querySelector("#btn2");
+btn2.onClick = ()=>{
+console.log("Button 2-..................................");
+};
+
+
+let div = document.querySelector("mydiv");

@@ -1,0 +1,155 @@
+console.log("Variable example........................................................");
+const profile = {
+    username : "aman",
+    isFallow : true,
+    followers : 123,
+    fallowing : 456
+    
+    };
+
+    console.log(profile);
+
+    console.log(profile.username);
+    console.log(profile["username"]);
+
+
+    console.log(typeof profile);
+    console.log(typeof profile.username);
+    console.log(typeof profile["isFallow"]);
+
+
+    console.log("condictional example.....................................................");
+    let age = 65;
+
+    if(age > 60){
+        console.log("You are eligible");
+    }
+
+
+    // let num = prompt("enter the number");
+
+    // if( num % 5 === 0){
+
+    //     console.log(" number is divded by 5");
+    // }
+    // else{
+    //     console.log(" number is not divded by 5");
+    // }
+
+
+    console.log("Loop example.....................................................");
+
+    let str ="aman jaiswal"
+    let len =0;
+
+    for( let i of str){
+        len++;
+        console.log(i);
+    }
+
+    console.log(len);
+
+
+    const student = {
+name : "aman",
+id : 1,
+age : 32
+
+    };
+
+
+    for(let key in student){
+        console.log(key , student[key]);
+    }
+
+
+    console.log("String example.....................................................");
+
+
+let obj ={
+    item : "pen",
+    price : 30
+};
+
+let output = `the cost of ${obj.item} is ${obj.price}`
+console.log(output);
+
+console.log("the cost of", obj.item, "is" ,obj.price);
+
+let str1 = "aman";
+
+console.log(str1.toUpperCase());
+
+
+// let usnername1 = prompt("enter the name");
+// let name = "@"+usnername1 + usnername1.length;
+// console.log(name);
+
+
+let cities = ["Delhi", "pune" ,"bengaluru", "noida"];
+
+for( let citi of cities){
+    console.log(citi);
+}
+
+console.log(cities);
+for(let i =0 ; i < cities.length; i++){
+    console.log(cities[i]);
+}
+
+
+let marks = [23,65,87,34,67,13,47];
+let sum =0;
+let index =0;
+
+console.log("Before discount", marks);
+
+for(let mark of marks){
+sum  += mark;
+marks[index] = mark*(0.9);
+index++; 
+}
+console.log("after discount", marks);
+console.log("Avg =",sum/marks.length);
+
+
+marks.push(77);
+marks.unshift(7);
+console.log(marks);
+
+
+let companies = ["IBM", "Google", "LTI" , "CG"]
+
+
+
+console.log(companies.shift());
+console.log(companies.splice(0, 1,"CGI"));
+console.log(companies.push("Amazon"));
+
+    console.log(" Method and function.....................................................");
+myFunction();
+
+
+    function myFunction(){
+        console.log("Welcome to my function")
+    }
+
+
+    let result = [23,56,45,87,11,9,455,22,87];
+
+    let filterMarks = result.filter((num) => {
+            return num < 40
+    });
+
+    console.log(filterMarks);
+
+    let reduceSum = result.reduce((prev, curr)=>{
+        return prev+curr;
+
+    });
+
+    console.log("sum using reduce =", reduceSum);
+
+
+
+    

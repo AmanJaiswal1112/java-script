@@ -1,0 +1,12 @@
+let btn = document.createElement("button");
+console.log(btn);
+btn.innerText = "Click Me"
+
+
+btn.style.color ="white";
+btn.style.backgroundColor="Red";
+
+
+document.querySelector("body").prepend(btn);
+
+

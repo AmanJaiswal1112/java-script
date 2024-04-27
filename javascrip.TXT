@@ -1,0 +1,426 @@
+INDEX.CSS
+
+#heading{
+    color: red;
+    background-color: yellow;
+}
+
+.content{
+    color: red;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+.newclass {
+    background-color: green;
+}
+
+
+body{
+    background-color: #548687;
+    text-align: center;
+}
+
+
+.container{
+height: 70vh;
+}
+
+.game{
+height: 60vmin;
+width: 60vmin;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
+align-items: center;
+gap: 1.5vmin;
+
+}
+
+
+.box{
+    height: 18vmin;
+    width: 18vmin;
+    border-radius: 1rem;
+    border: none;
+    box-shadow: 0 0 1rem rgba(0, 0,0,0.3);
+    font-size: 8vmin;
+    color: #b037b0;
+}
+
+.reset-btn{
+    padding: 1rem;
+    font-size: 1.25rem;
+    background-color: #191919;
+    color: #fff;
+    border-radius: 1rem;
+    border: none;
+    background-color: #464646;
+
+}
+
+
+/* div{
+    height: 100px;
+    width: 100px;
+    background-color: green;
+    color: red;
+} */
+
+.light{
+    background-color: white;
+    color: black;
+}
+
+.dark {
+    background-color: black;
+    color: white;
+}
+
+
+=======================================================================
+
+index.html
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+    <main>
+        
+        <h1>Tic Tac Tok</h1>
+        <div class="container">
+            <div class="game">
+                <button class="box"> </button>
+                <button class="box"> </button>
+                <button class="box">  </button>
+                <button class="box"> </button>
+                <button class="box"> </button>
+                <button class="box"> </button>
+                <button class="box"> </button>
+                <button class="box"> </button>
+                <button class="box"> </button>
+            </div>
+        </div>
+        <button id="reset-btn" > Reset Game</button>
+    </main>
+        <script src="tic_tac_toc_game.js"></script>
+</body>
+
+</html>
+
+
+
+
+================================================================================================
+
+
+tic.tac.js
+
+
+let boxs = document.querySelectorAll(".box");
+let resetBtn = document.querySelector("#reset-btn");
+
+let playerO = true; //player 1 , player 2
+let playerX = false;
+
+
+resetBtn.addEventListener("click" , () => {
+    console.log("Reset Button Clicked!!!!!");
+});
+
+
+const winPattern = [
+[0,1,2],
+[0,3,6],
+[0,4,8],
+
+[1,4,7],
+[2,5,8],
+[2,4,6],
+
+[3,4,5],
+[6,7,8]
+
+];
+
+
+boxs.forEach((box)=>{
+    
+    box.addEventListener("click", ()=>{
+console.log("box clicked");
+if(playerO){
+    box.innerText = "O";
+    playerO=false;
+}else{
+    box.innerText = "X";
+    playerO = true;
+}
+box.disabled = true;
+
+checkWinner();
+});
+});
+
+const checkWinner = () => {
+    for(let patt of winPattern){
+        let pos1 = boxs[patt[0]].innerText;
+        let pos2 = boxs[patt[1]].innerText;
+        let pos3 = boxs[patt[2]].innerText;
+        
+        if(pos1 != "" && pos2 != "" && pos3 != ""){
+            if(pos1 === pos2 && pos2 === pos3){
+                console.log("Winner is ", pos1);
+                
+            }
+        }
+
+
+    }
+}
+
+
+==========================================================================================
+
+
+domepractice.js
+
+
+let btn = document.createElement("button");
+console.log(btn);
+btn.innerText = "Click Me"
+
+
+btn.style.color ="white";
+btn.style.backgroundColor="Red";
+
+
+document.querySelector("body").prepend(btn);
+
+
+
+let allPara = document.querySelector("h4");
+ 
+console.log(allPara);
+allPara.getAttribute("content")
+
+
+let tag = document.querySelector("h2");
+let tag1 = tag + "apapa";
+console.dir(tag1);
+
+
+let tag2 = document.getElementsByTagName("h2");
+console.dir(tag2);
+
+// event practice==============================================================================
+
+console.log("HAnding Events.............................................");
+
+let btn1 = document.querySelector("#btn1");
+
+btn1.onClick = () => {
+    console.log("button cliecked");
+};  
+
+
+
+btn1.addEventListener("click", (evt) => {
+console.log("button 1 is clicked");
+console.log(evt);
+});
+
+
+let mode ="light";
+btn3.addEventListener("click", (evt) => {
+    if(mode === "light"){
+        mode="dark";
+        document.querySelector("body").classList.add("dark");
+        document.querySelector("body").classList.remove("white");        
+    }else{
+        mode="light";
+        document.querySelector("body").style.background="white";
+    }
+    console.log("button cliecked, pls chenge color",mode);
+    console.log(evt);
+    });
+
+
+
+
+let btn2 = document.querySelector("#btn2");
+btn2.onClick = ()=>{
+console.log("Button 2-..................................");
+};
+
+
+let div = document.querySelector("mydiv");
+
+
+//first.js============================================================================================================================
+
+console.log("Variable example........................................................");
+const profile = {
+    username : "aman",
+    isFallow : true,
+    followers : 123,
+    fallowing : 456
+    
+    };
+
+    console.log(profile);
+
+    console.log(profile.username);
+    console.log(profile["username"]);
+
+
+    console.log(typeof profile);
+    console.log(typeof profile.username);
+    console.log(typeof profile["isFallow"]);
+
+
+    console.log("condictional example.....................................................");
+    let age = 65;
+
+    if(age > 60){
+        console.log("You are eligible");
+    }
+
+
+    // let num = prompt("enter the number");
+
+    // if( num % 5 === 0){
+
+    //     console.log(" number is divded by 5");
+    // }
+    // else{
+    //     console.log(" number is not divded by 5");
+    // }
+
+
+    console.log("Loop example.....................................................");
+
+    let str ="aman jaiswal"
+    let len =0;
+
+    for( let i of str){
+        len++;
+        console.log(i);
+    }
+
+    console.log(len);
+
+
+    const student = {
+name : "aman",
+id : 1,
+age : 32
+
+    };
+
+
+    for(let key in student){
+        console.log(key , student[key]);
+    }
+
+
+    console.log("String example.....................................................");
+
+
+let obj ={
+    item : "pen",
+    price : 30
+};
+
+let output = `the cost of ${obj.item} is ${obj.price}`
+console.log(output);
+
+console.log("the cost of", obj.item, "is" ,obj.price);
+
+let str1 = "aman";
+
+console.log(str1.toUpperCase());
+
+
+// let usnername1 = prompt("enter the name");
+// let name = "@"+usnername1 + usnername1.length;
+// console.log(name);
+
+
+let cities = ["Delhi", "pune" ,"bengaluru", "noida"];
+
+for( let citi of cities){
+    console.log(citi);
+}
+
+console.log(cities);
+for(let i =0 ; i < cities.length; i++){
+    console.log(cities[i]);
+}
+
+
+let marks = [23,65,87,34,67,13,47];
+let sum =0;
+let index =0;
+
+console.log("Before discount", marks);
+
+for(let mark of marks){
+sum  += mark;
+marks[index] = mark*(0.9);
+index++; 
+}
+console.log("after discount", marks);
+console.log("Avg =",sum/marks.length);
+
+
+marks.push(77);
+marks.unshift(7);
+console.log(marks);
+
+
+let companies = ["IBM", "Google", "LTI" , "CG"]
+
+
+
+console.log(companies.shift());
+console.log(companies.splice(0, 1,"CGI"));
+console.log(companies.push("Amazon"));
+
+    console.log(" Method and function.....................................................");
+myFunction();
+
+
+    function myFunction(){
+        console.log("Welcome to my function")
+    }
+
+
+    let result = [23,56,45,87,11,9,455,22,87];
+
+    let filterMarks = result.filter((num) => {
+            return num < 40
+    });
+
+    console.log(filterMarks);
+
+    let reduceSum = result.reduce((prev, curr)=>{
+        return prev+curr;
+
+    });
+
+    console.log("sum using reduce =", reduceSum);
+
+
+
+    
